@@ -1,0 +1,10 @@
+---
+- name: Installation de Bind
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Installer Bind
+      dnf:
+        name: bind
+        state: present

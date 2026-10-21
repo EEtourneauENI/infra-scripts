@@ -1,0 +1,16 @@
+---
+- name: Installation Apache sur staging
+  hosts: srv-staging
+  become: true
+
+  tasks:
+    - name: Installer Apache
+      dnf:
+        name: httpd
+        state: present
+
+    - name: Demarrer Apache et activer son demarrage automatique
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
